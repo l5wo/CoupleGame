@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070709">
+  <meta name="description" content="وجهة نظر - لعبة حوار وتحديات للكابلز">
+  <title>وجهة نظر | Viewpoint</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<!-- Viewpoint Background Music -->
+<div id="musicPlayer" class="music-player">
+  <button id="musicToggle" type="button" aria-label="تشغيل الموسيقى">
+    ▶
+  </button>
+
+  <button id="musicPrevious" type="button" aria-label="الأغنية السابقة">
+    ⏮
+  </button>
+
+  <div class="music-info">
+    <span id="musicTitle">موسيقى وجهة نظر 🎵</span>
+    <input
+      id="musicVolume"
+      type="range"
+      min="0"
+      max="1"
+      step="0.05"
+      value="0.35"
+      aria-label="مستوى الصوت"
+    />
+  </div>
+
+  <button id="musicNext" type="button" aria-label="الأغنية التالية">
+    ⏭
+  </button>
+
+  <button id="musicMute" type="button" aria-label="كتم الصوت">
+    🔊
+  </button>
+
+  <audio id="backgroundMusic" preload="metadata"></audio>
+</div>
+
+
+  
+  
+<body>
+
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="topbar">
+    <button class="brand" id="brandHome" aria-label="العودة للبداية">
+      <span class="brand-mark">♡</span>
+      <span>وجهة نظر<small>VIEWPOINT</small></span>
+    </button>
+    <div class="session-pill">
+      <span class="live-dot"></span>
+      جلسة مباشرة
+    </div>
+  </header>
+
+  <main class="app-shell">
+
+    <!-- الصفحة الأولى: الترحيب -->
+    <section class="screen active" id="welcomeScreen">
+      <div class="welcome-content">
+        <div class="hero-orb">
+          <span class="orb-ring ring-one"></span>
+          <span class="orb-ring ring-two"></span>
+          <span class="hero-heart">♡</span>
+          <span class="spark spark-a">✦</span>
+          <span class="spark spark-b">✧</span>
+        </div>
+
+        <div class="eyebrow">
+          <span></span> مساحة آمنة للحوار <span></span>
+        </div>
+
+        <h1>وجهة <span>نظر</span></h1>
+
+        <p class="hero-copy">
+          مو مجرد أسئلة… هي فرصة حتى تسمعون بعض من القلب،
+          وتكتشفون أشياء جديدة عن بعض.
+        </p>
+
+        <div class="hero-tags">
+          <span>💭 حوار</span>
+          <span>♡ تقارب</span>
+          <span>⚡ لحظات ممتعة</span>
+        </div>
+
+        <button class="btn btn-primary btn-large" id="startBtn">
+          ابدأ الرحلة <span>✦</span>
+        </button>
+
+        <p class="tiny-note">
+          لحظتكم إلكم… خلوها على طبيعتها.
+        </p>
+      </div>
+    </section>
+
+    <!-- الصفحة الثانية: القوانين -->
+    <section class="screen" id="rulesScreen">
+      <div class="page-heading">
+        <span class="step-label">خطوة 01 · قبل البداية</span>
+        <h2>اتفقوا على <span>قواعدكم</span></h2>
+        <p>اللعبة أحلى لما يكون بينكم احترام وراحة.</p>
+      </div>
+
+      <div class="rules-card glass-card">
+        <article class="rule-row">
+          <span class="rule-icon blue">♡</span>
+          <div>
+            <h3>الصراحة من القلب</h3>
+            <p>جاوبوا بصدق وبدون مجاملات، وبالقدر اللي ترتاحون إله.</p>
+          </div>
+        </article>
+
+        <article class="rule-row">
+          <span class="rule-icon pink">↗</span>
+          <div>
+            <h3>فرصتا تخطٍّ فقط</h3>
+            <p>عندكم فرصتان لتخطي سؤال من أقسام الحوار خلال الجلسة كلها.</p>
+          </div>
+        </article>
+
+        <article class="rule-row">
+          <span class="rule-icon amber">⚡</span>
+          <div>
+            <h3>التحديات إلزامية داخل اللعبة</h3>
+            <p>
+              ماكو زر تخطٍّ بقسم التحديات. سلامة ورضا الطرفين
+              أهم من أي لعبة، وتكدرون توقفون إذا ما ارتحتوا.
+            </p>
+          </div>
+        </article>
+
+        <article class="rule-row">
+          <span class="rule-icon violet">✦</span>
+          <div>
+            <h3>بدون تلميحات</h3>
+            <p>اعتمدوا على عفويتكم وخلو الحوار يمشي بطبيعته.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="button-stack">
+        <button class="btn btn-primary" id="rulesContinue">
+          فهمت القوانين، لنبدأ! <span>↗</span>
+        </button>
+        <button class="btn btn-ghost" data-go="welcomeScreen">
+          رجوع للبداية
+        </button>
+      </div>
+    </section>
+
+    <!-- الصفحة الثالثة: الأقسام -->
+    <section class="screen" id="categoriesScreen">
+      <div class="page-heading">
+        <span class="step-label">خطوة 02 · اختاروا الجو</span>
+        <h2>وين تودّينا <span>وجهة النظر؟</span></h2>
+        <p>اختاروا قسماً، وبعدها اختاروا رقماً بشكل عشوائي.</p>
+      </div>
+
+      <div class="category-list">
+        <button class="category-card cat-blue" data-category="perspective">
+          <span class="category-icon">💭</span>
+          <span class="category-copy">
+            <strong>وجهة نظرك</strong>
+            <small>أسئلة تفتح نقاشات وتكشف اختلافاتكم الجميلة.</small>
+            <em>100 سؤال</em>
+          </span>
+          <span class="category-arrow">←</span>
+        </button>
+
+        <button class="category-card cat-pink" data-category="deep">
+          <span class="category-icon">🔥</span>
+          <span class="category-copy">
+            <strong>صراحة وعمق</strong>
+            <small>أسئلة صادقة ورومانسية تقرّب القلوب.</small>
+            <em>100 سؤال</em>
+          </span>
+          <span class="category-arrow">←</span>
+        </button>
+
+        <button class="category-card cat-amber" data-category="challenge">
+          <span class="category-icon">⚡</span>
+          <span class="category-copy">
+            <strong>التحديات والنار</strong>
+            <small>تحديات رومانسية وصوتية وحركية ممتعة.</small>
+            <em>100 تحدٍّ · بلا تخطٍّ</em>
+          </span>
+          <span class="category-arrow">←</span>
+        </button>
+      </div>
+
+      <div class="skip-summary">
+        <span class="skip-mini-icon">↷</span>
+        <span>فرص التخطي المتبقية</span>
+        <strong id="categorySkips">2 / 2</strong>
+      </div>
+
+      <button class="btn btn-ghost back-button" data-go="rulesScreen">
+        رجوع للقوانين
+      </button>
+    </section>
+
+    <!-- الصفحة الرابعة: الأرقام -->
+    <section class="screen" id="numbersScreen">
+      <div class="page-heading compact-heading">
+        <span class="step-label" id="numberStep">اختيار عشوائي</span>
+        <h2 id="numbersTitle">اختاروا <span>رقماً</span></h2>
+        <p id="numbersDescription">كل رقم يخفي سؤالاً مختلفاً.</p>
+      </div>
+
+      <div class="numbers-meta">
+        <span id="numberCount">100 اختيار</span>
+        <span>✦ اختاروا على مزاجكم</span>
+      </div>
+
+      <div class="numbers-grid" id="numbersGrid" aria-label="أرقام الأسئلة"></div>
+
+      <div class="numbers-footer">
+        <span class="skip-mini-icon">↷</span>
+        <span>التخطي المتبقي</span>
+        <strong id="gridSkips">2 / 2</strong>
+      </div>
+
+      <button class="btn btn-ghost back-button" data-go="categoriesScreen">
+        تغيير القسم
+      </button>
+    </section>
+
+    <!-- الصفحة الخامسة: السؤال أو التحدي -->
+    <section class="screen" id="questionScreen">
+      <div class="question-back-row">
+        <button class="text-button" id="questionBack">← قائمة الأرقام</button>
+        <span class="question-count" id="questionCount">السؤال 01 / 100</span>
+      </div>
+
+      <div class="question-card" id="questionCard">
+        <div class="question-glow"></div>
+
+        <div class="question-top">
+          <span class="question-category" id="questionCategory">💭 وجهة نظرك</span>
+          <span class="question-number" id="questionNumber">01</span>
+        </div>
+
+        <div class="question-symbol" id="questionSymbol">“</div>
+
+        <div class="question-content">
+          <span class="question-kicker" id="questionKicker">سؤال للنقاش</span>
+          <h2 id="questionText">السؤال يظهر هنا</h2>
+          <p id="questionHint">خذوا وقتكم… الأهم أن تسمعوا بعض.</p>
+        </div>
+
+        <div class="skip-counter" id="skipCounter">
+          <span>↷</span>
+          <span>فرص التخطي</span>
+          <strong id="modalSkips">2 متبقية</strong>
+        </div>
+
+        <div class="question-actions">
+          <button class="btn btn-primary" id="answeredBtn">
+            تمت الإجابة <span>✓</span>
+          </button>
+          <button class="btn btn-skip" id="skipBtn">
+            تخطي السؤال <span>↷</span>
+          </button>
+        </div>
+
+        <p class="challenge-footnote hidden" id="challengeFootnote">
+          ⚡ التحدي جزء من اللعبة — نفّذوه بحماس وبما يناسب راحتكم.
+        </p>
+      </div>
+
+      <p class="below-card-note">
+        خلو مساحة لكل واحد يحچي ويسمع. 💗
+      </p>
+    </section>
+
+    <footer class="app-footer">
+      <span>صُممت للحظات الصادقة</span>
+      <span>VIEWPOINT <b>✦</b></span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
